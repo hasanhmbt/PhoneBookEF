@@ -1,0 +1,28 @@
+﻿USE master;
+GO
+
+-- Veritabanını düşür ve yeniden oluştur
+DROP DATABASE IF EXISTS PhoneBook;
+GO
+
+CREATE DATABASE PhoneBook;
+GO
+
+USE PhoneBook;
+GO
+
+-- Tabloyu oluştur
+CREATE TABLE People
+( 
+    Id INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+    FirstName NVARCHAR(100) NOT NULL,
+    LastName NVARCHAR(100) NOT NULL,
+    Mail NVARCHAR(100) NOT NULL,
+    Phone NVARCHAR(30) NOT NULL
+);
+GO
+
+-- Örnek veri ekle
+INSERT INTO People (FirstName, LastName, Mail, Phone) 
+VALUES ('John', 'Doe', 'john.doe@code.edu.az', '+9945077788899');
+GO
