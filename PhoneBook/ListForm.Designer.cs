@@ -48,12 +48,13 @@
             lstPeople.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5 });
             lstPeople.ContextMenuStrip = contextMenuStrip1;
             lstPeople.Dock = DockStyle.Fill;
-            lstPeople.Font = new Font("Perpetua Titling MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstPeople.Font = new Font("Consolas", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lstPeople.FullRowSelect = true;
             lstPeople.GridLines = true;
-            lstPeople.Location = new Point(20, 60);
+            lstPeople.Location = new Point(23, 80);
+            lstPeople.Margin = new Padding(3, 4, 3, 4);
             lstPeople.Name = "lstPeople";
-            lstPeople.Size = new Size(807, 370);
+            lstPeople.Size = new Size(922, 493);
             lstPeople.TabIndex = 0;
             lstPeople.UseCompatibleStateImageBehavior = false;
             lstPeople.View = View.Details;
@@ -84,15 +85,16 @@
             // 
             // contextMenuStrip1
             // 
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { cmsEdit, cmsSil, toolStripSeparator1, cmsRefresh });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 98);
+            contextMenuStrip1.Size = new Size(137, 88);
             // 
             // cmsEdit
             // 
             cmsEdit.Image = Properties.Resources.edit;
             cmsEdit.Name = "cmsEdit";
-            cmsEdit.Size = new Size(180, 22);
+            cmsEdit.Size = new Size(136, 26);
             cmsEdit.Text = "Düzenle";
             cmsEdit.Click += cmsEdit_Click;
             // 
@@ -100,30 +102,32 @@
             // 
             cmsSil.Image = Properties.Resources.trash;
             cmsSil.Name = "cmsSil";
-            cmsSil.Size = new Size(180, 22);
+            cmsSil.Size = new Size(136, 26);
             cmsSil.Text = "Sil";
             cmsSil.Click += cmsSil_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(177, 6);
+            toolStripSeparator1.Size = new Size(133, 6);
             // 
             // cmsRefresh
             // 
             cmsRefresh.Image = Properties.Resources.Refresh;
             cmsRefresh.Name = "cmsRefresh";
-            cmsRefresh.Size = new Size(180, 22);
+            cmsRefresh.Size = new Size(136, 26);
             cmsRefresh.Text = "Yenile";
             cmsRefresh.Click += cmsRefresh_Click;
             // 
             // ListForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(847, 450);
+            ClientSize = new Size(968, 600);
             Controls.Add(lstPeople);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "ListForm";
+            Padding = new Padding(23, 80, 23, 27);
             Text = "ListForm";
             FormClosing += ListForm_FormClosing;
             Load += ListForm_Load;
