@@ -10,11 +10,11 @@ namespace PhoneBook
     {
 
         private string _id;
-        private readonly PhoneBookContext db;
+        private readonly PhoneBookContext _DbContext;
 
         public EditForm(string Id)
         {
-            db = new();
+            _DbContext = new();
             _id = Id;
             InitializeComponent();
         }
@@ -24,7 +24,7 @@ namespace PhoneBook
         
         private void EditForm_Load(object sender, EventArgs e)
         {
-           var person =  db.People.Find(Convert.ToInt32(_id));
+           var person =  _DbContext.People.Find(Convert.ToInt32(_id));
 
             txtFirstName.Text = person.FirstName;
             txtLastName.Text = person.LastName;
@@ -36,15 +36,15 @@ namespace PhoneBook
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-           var editedPerson = db.People.Find(Convert.ToInt32(_id));
+           var editedPerson = _DbContext.People.Find(Convert.ToInt32(_id));
 
             editedPerson.FirstName = txtFirstName.Text;
             editedPerson.LastName = txtLastName.Text;
             editedPerson.Phone = txtPhone.Text;
             editedPerson.Mail = txtMail.Text;
 
-            db.People.Update(editedPerson);
-            db.SaveChanges();
+            _DbContext.People.Update(editedPerson);
+            _DbContext.SaveChanges();
 
             MessageBox.Show(
                 "Person has been updated.",

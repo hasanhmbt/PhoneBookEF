@@ -5,8 +5,11 @@ namespace PhoneBook
 {
     public partial class Form1 : MetroForm
     {
+        PhoneBookContext _DbContext;
+
         public Form1()
         {
+            _DbContext = new();
             InitializeComponent();
         }
 
@@ -33,7 +36,6 @@ namespace PhoneBook
         private void btnSave_Click(object sender, EventArgs e)
         {
 
-            PhoneBookContext db = new();
 
 
             if (string.IsNullOrEmpty(txtFirstName.Text) || string.IsNullOrEmpty(txtLastName.Text) || string.IsNullOrEmpty(txtPhone.Text) || string.IsNullOrEmpty(txtMail.Text))
@@ -54,8 +56,8 @@ namespace PhoneBook
                 Mail = txtMail.Text
             };
 
-            db.People.Add(person);
-            db.SaveChanges();
+            _DbContext.People.Add(person);
+            _DbContext.SaveChanges();
 
             Clear(grbSavePerson);
 

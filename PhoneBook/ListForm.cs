@@ -9,11 +9,11 @@ namespace PhoneBook;
 
 public partial class ListForm : MetroForm
 {
-    private readonly PhoneBookContext db;
+    private readonly PhoneBookContext _DbContext;
     public ListForm()
     {
         InitializeComponent();
-        db = new();
+        _DbContext = new();
     }
 
     #region Load Function
@@ -21,7 +21,7 @@ public partial class ListForm : MetroForm
     {
         lstPeople.Items.Clear();
 
-        var people = db.People.Select(p => new
+        var people = _DbContext.People.Select(p => new
         {
             p.Id,
             p.FirstName,
@@ -85,11 +85,11 @@ public partial class ListForm : MetroForm
         int personId;
         if (int.TryParse(lstPeople.SelectedItems[0].Text, out personId))
         {
-            var selectedPerson = db.People.Find(personId);
+            var selectedPerson = _DbContext.People.Find(personId);
             if (selectedPerson != null)
             {
-                db.People.Remove(selectedPerson);
-                db.SaveChanges();
+                _DbContext.People.Remove(selectedPerson);
+                _DbContext.SaveChanges();
 
                 lstPeople.SelectedItems[0].Remove();
                  
